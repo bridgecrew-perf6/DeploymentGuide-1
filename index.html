@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lets Deploy!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
-<body>
+<body class="container">
     <h1>Deploy SpringBoot Maven project</h1>
     <p>
         The purpose of this site is to make deploying your capstones as easy as possible.
@@ -41,16 +42,16 @@
         <p>Select the ADD NAMESERVER button</p>
 
         <p>enter the following text in the fields </p>
-        <label for="ns1Field">1st field</label> <code id="ns1Field">ns1.digitalocean.com</code>
+        <label class="font-monospace" for="ns1Field">1st field</label> <code id="ns1Field">ns1.digitalocean.com</code>
         <input type="button" value="copy" id="nsOneCopy">
         <br>
 
-        <label for="ns2Field">2nd field</label> <code id="ns2Field">ns2.digitalocean.com</code>
+        <label class="font-monospace" for="ns2Field">2nd field</label> <code id="ns2Field">ns2.digitalocean.com</code>
         <input type="button" value="copy" id="nsTwoCopy">
 
         <br>
 
-        <label for="ns3Field">3rd field</label> <code id="ns3Field">ns3.digitalocean.com</code>
+        <label class="font-monospace" for="ns3Field">3rd field</label> <code id="ns3Field">ns3.digitalocean.com</code>
         <input type="button" value="copy" id="nsThreeCopy">
 
         <h3>Step 4</h3>
@@ -157,6 +158,71 @@
         <p>Click Create Record button</p>
 
         <h3>You have Set up your Hosting Service!!</h2>
+
+    </section>
+
+    <section>
+        <h2>Preping Application for Deployment</h2>
+        <br>
+
+        <h3>Step 1</h3>
+        <p>Make sure your application works!!</p>
+        <p>Your app must be able to compile succesfully on your local machine before you continue</p>
+
+        <h3>Step 2</h3>
+        <p>If you do not have intergrations in your application you will need to add the following to your <code>pom.xml</code></p>
+        <pre>
+            <code>
+                ... 
+                &#60;properties&#62; 
+                ...
+                 &#60;skipTests&#62;true&#60;/skipTests&#62;
+                ... 
+                &#60;/properties&#62; 
+                ... 
+            </code>
+        </pre>
+
+        <h3>Step 3</h3>
+        <p>Open a new terminal in your intellij project and run the following command</p>
+        <p><code>./mvnw package</code></p>
+        <input type="button" value="copy" id="copyMavenPackageCommandButton">
+
+
+        <h3>Step 4</h3>
+        <p>If your application packaged succesfully you can move to the next step</p>
+        <p>Otherwise you will need to fix all errors and repeat step 3</p>
+
+        <h3>Step 5</h3>
+        <p>Next we need to find the location of your output jar file</p>
+        <p>You can do so by running the following command in your project's terminal</p>
+        <p><code>find target -name \*.jar</code></p>
+        <input type="button" value="copy" id="findJarFileButton">
+
+        <h3>Step 6</h3>
+        <p>Next Paste the result of the command in the field below.</p>
+        <input type="text" id="findTargetResult">
+
+        <h3>Step 7</h3>
+        <p>Now lets run our application from the command line.</p>
+        <p>Run the following command in your project's terminal</p>
+        <p><code id="runJarFileCommand">java -jar YOUR_JAR_FILE</code></p>
+        <input type="button" value="copy" id="runJarFileCommandCopy">
+
+        <h3>Step 8</h3>
+        <p>Once your application has succesfully started up, you can use press Ctrl-C.</p>
+        <p>This will stop the application so we can move forward.</p>
+
+        <h3>Step 9</h3>
+        <p>Create a file called <code>cods.</code> in the root of your project.</p>
+
+        <h3>Step 10</h3>
+        <p>Put the following code in the <code>cods.</code> file.</p>
+        <p><pre><code id="codsFileText"></code></pre></p>
+        
+
+        
+
 
     </section>
 
