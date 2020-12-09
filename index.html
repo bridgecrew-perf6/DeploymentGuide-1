@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lets Deploy!</title>
+</head>
+<body>
+    <h1>Deploy SpringBoot Maven project</h1>
+    <p>
+        The purpose of this site is to make deploying your capstones as easy as possible.
+    </p>
+    <section id="domainSetup">
+
+        <h2>Domain Setup</h2>
+        
+        <p>Before we go about setting up a server to host our website we need to purchase and setup a domain for said website.</p>
+
+        <h3>Step 1</h3>
+
+        <p>First we need to purchase a domain, I recommned NameCheap.</p>
+
+        <label for="nameCheapDomainSearchField">Domain Search</label>
+        <input type="text" name="nameCheapDomainSearch" id="nameCheapDomainSearchField">
+        <button id="DomainSearchButton">Find Domains</button>
+        
+        <h3>Step 2</h3>
+
+        <p>Enter your purchased domian in the field below</p>
+
+        <Label for="domainNameField">Domain Name</Label>
+        <input placeholder="website.com" type="text" name="domainNameField" id="domainNameField">
+
+        <h3>Step 3</h3>
+
+        <p>Next we need to go to the domain's control panel, and point our domian to our hosting service.</p>
+        <button id="domainControlPanelButton" >Domain Control Panel</button>
+
+        <p>Under the option called NAMESERVERS click Namecheap BasicDNS, a dropdown will appear.</p>
+        <p>select Custom DNS from the dropdown menu. Two additional fields will appear.</p>
+        <p>Select the ADD NAMESERVER button</p>
+
+        <p>enter the following text in the fields </p>
+        <label for="ns1Field">1st field</label> <code id="ns1Field">ns1.digitalocean.com</code>
+        <input type="button" value="copy" id="nsOneCopy">
+        <br>
+
+        <label for="ns2Field">2nd field</label> <code id="ns2Field">ns2.digitalocean.com</code>
+        <input type="button" value="copy" id="nsTwoCopy">
+
+        <br>
+
+        <label for="ns3Field">3rd field</label> <code id="ns3Field">ns3.digitalocean.com</code>
+        <input type="button" value="copy" id="nsThreeCopy">
+
+        <h3>Step 4</h3>
+        <p>Confirm changes by clicking green checkmark</p>
+
+        <h3>Congratulations your domain is ready!</h3>
+    
+    </section>
+
+    <br>
+
+    <section>
+
+        <h2>Setting up droplet</h2>
+
+        <h3>Step 1</h3>
+        <p>Head to DigitalOcean and login or setup account</p>
+        <a href="https://cloud.digitalocean.com/login">Digitalocean Login</a>
+
+        <h3>Step 2</h3>
+        <p>Navigate to Digital Ocean New Droplet page</p>
+        <a href="https://cloud.digitalocean.com/droplets/new">Digitalocean Droplets</a>
+
+        <h3>Step 3</h3>
+        <p>Under Distributions select Debian v10 x64</p>
+
+        <h3>Step 4</h3>
+        <p>Under plan make sure Basic is selected and select 10/mo plan</p>
+        <p>You may have to scroll to the left to see the 10/mo plan</p>
+
+        <h3>Step 5</h3>
+        <p>Under datacenter region make sure New York or San Francisco is selected</p>
+
+        <h3>Step 6</h3>
+        <p>Under Authentication make sure SSH Keys is selected</p>
+
+        <h3>Step 7</h3>
+        <p>Click New SSH Key</p>
+
+        <h3>Step 8</h3>
+        <p>put the following commnad in your terminal. This will copy your SSH key to your ClipBoard.</p>
+        <p><code>cat ~/.ssh/id_rsa.pub | pbcopy</code></p>
+        <input type="button" value="copy" id="copySshCommandButton">
+
+        <h3>Step 9</h3>
+        <p>Paste into the SHH Key content field</p>
+
+        <h3>Step 10</h3>
+        <p>In the Name field name your shh key based on what machine you are on.</p>
+        <p>Ex: michael_scott_MacBookPro</p>
+
+        <h3>Step 11</h3>
+        <p>Click Add SSH Key Button</p>
+
+        <h3>Step 12</h3>
+        <p>In the Choose a hostname field put the name of your droplet.</p>
+        <p>Ex: springBlog_droplet</p>
+
+        <h3>Step 13</h3>
+        <p>Select The project you would like to add this droplet too.</p>
+
+        <h3>Step 14</h3>
+        <p>Click Create Droplet Button</p>
+
+        <h3>You have Created your Droplet!!</h2>
+
+    </section>
+
+    <br>
+
+    <section>
+        <h2>Hosting service set up</h2>
+
+        <p>Now that we have a domain ready and pointing to our hosting service we need to get that hosting service ready</p>
+
+        <h3>Step 1</h3>
+        <p>Navigate to the Digitalocean networking tab</p>
+        <a href="https://cloud.digitalocean.com/networking">Digitalocean Networking</a>
+
+        <h3>Step 2</h3>
+        <p>Next you need to add your domian to field under Add a domain.</p>
+        <p><code id="AddNewDomainText">something.com</code></p>
+        <input type="button" value="copy" id="AddNewDomainCopyButton">
+
+        <h3>Step 3</h3>
+        <p>Enter @ into the hostname field.</p>
+
+        <h3>Step 4</h3>
+        <p>Choose your droplet under will direct to.</p>
+
+        <h3>Step 5</h3>
+        <p>Click Create Record button.</p>
+
+        <h3>Step 6</h3>
+        <p>Click CNAME under create a new record.</p>
+
+        <h3>step 7</h3>
+        <p>Enter * for hostname field</p>
+
+        <h3>Step 8</h3>
+        <p>Enter @ in the Is an Alias Of field</p>
+
+        <h3>step 9</h3>
+        <p>Click Create Record button</p>
+
+        <h3>You have Set up your Hosting Service!!</h2>
+
+    </section>
+
+
+    <script src="./index.js"></script>
+
+</body>
+</html>
