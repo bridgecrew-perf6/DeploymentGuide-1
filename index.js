@@ -6,7 +6,9 @@ const domainCopyButton = document.getElementById('AddNewDomainCopyButton');
 const addnewDomainText = document.getElementById('AddNewDomainText');
 const findTargetResult = document.getElementById('findTargetResult');
 const findjarfilecmdText = document.getElementById('runJarFileCommand');
+const codsFileCreationcmdText = document.getElementById('codsFileCreationCommand');
 const codsFileText = document.getElementById('codsFileText')
+const codsIntegritycmdText = document.getElementById('codsFileIntergrityCommandText');
 
 let domain = "something.com";
 const sshkeycmd = "cat ~/.ssh/id_rsa.pub | pbcopy";
@@ -14,6 +16,10 @@ const mavenPackagecmd = "./mvnw package";
 const findJarFileCmd = String.raw`find target -name \*.jar`
 let runJarFilecmd = "YOUR_JAR_FILE";
 let codsfileConts = `BUILD_COMMAND='./mvnw package'\nJAR_FILE=target/blog-0.0.1-SNAPSHOT.jar`
+let  codsFileCreationcmd = "";
+let jarFileLocation = "";
+const codsFileIntergrityCommand = `source .cods\neval "$BUILD_COMMAND"\n[[ -f $JAR_FILE ]] && echo 'Good to Go!' || echo 'JAR_FILE not found!'`
+
 
 
 
@@ -49,11 +55,17 @@ domainControlPanelButton.addEventListener("click", () =>{
 })
 
 findTargetResult.addEventListener('change', () =>{
-    runJarFilecmd = `java -jar ${findTargetResult.value}`
+    jarFileLocation = findTargetResult.value.trim()
+    runJarFilecmd = `java -jar ${jarFileLocation}`
     findjarfilecmdText.innerHTML = runJarFilecmd;
-    codsFileText.innerHTML = `BUILD_COMMAND='./mvnw package'\nJAR_FILE=${runJarFilecmd}`
+    codsFileText.innerHTML = `BUILD_COMMAND='./mvnw package'\nJAR_FILE=${jarFileLocation}`
+    codsFileCreationcmd = `echo "`+ String.raw`BUILD_COMMAND='./mvnw package'\nJAR_FILE=`+ jarFileLocation +`" > .cods`;
+    codsFileCreationcmdText.innerHTML = codsFileCreationcmd;
     clipboard('runJarFileCommandCopy', runJarFilecmd);
+    clipboard('codsFileCreationCommandText',codsFileCreationcmd);
 })
+
+codsIntegritycmdText.innerHTML = codsFileIntergrityCommand;
 
 clipboard('nsOneCopy','ns1.digitalocean.com');
 clipboard('nsTwoCopy','ns2.digitalocean.com');
@@ -61,6 +73,7 @@ clipboard('nsThreeCopy','ns3.digitalocean.com');
 clipboard('copySshCommandButton',sshkeycmd);
 clipboard('copyMavenPackageCommandButton',mavenPackagecmd);
 clipboard('findJarFileButton',findJarFileCmd);
+clipboard('codsFileIntergrityCommandButton',codsFileIntergrityCommand);
 
 
 
