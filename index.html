@@ -305,13 +305,42 @@
         <input type="button" value="copy" id="serverLoginCommandButtonCopy">
 
         <h3>Step 2</h3>
-        <p>Lets install MySQL on our Droplet</p>
-        <p><pre><code id="installMySQLCommandText"></code></pre></p>
-        <input type="button" value="copy" id="mySQLinstallationCommand">
+        <p>Lets configure our MySQL install on our Droplet</p>
+        <p><pre><code id="configMySQLCommandText"></code></pre></p>
+        <input type="button" value="copy" id="mySQLconfigCommandCopy">
 
-        <h4>Step 3</h4>
-        <p>When prompted for </p>
+        <h3>Step 3</h3>
+        <p>When prompted Select "MySQL Server & Cluster".</p>
 
+        <h3>Step 4</h3>
+        <p>Next select v5.7</p>
+
+        <h3>Step 5</h3>
+        <p>Next install mySQL on the droplet</p>
+        <p><code id="installMySQLCommandText" >apt update && apt install -y mysql-server</code></p>
+        <input type="button" value="copy" id="mySQLinstallCommandCopy">
+
+        <h3>Step 6</h3>
+        <p>You will be prompted for a password, leave this blank and proceed.</p>
+
+        <h3>Step 7</h3>
+        <p>When the installation is complete we need to log into MySQL on our droplet.</p>
+        <p><code>mysql -u root</code></p>
+        <input type="button" value="copy" id="mySQLloginCommandCopy">
+
+        <h3>Step 8</h3>
+        <p>Next lets create our admin user for MySQL</p>
+        <p><pre><code id="mySQLamdinUserCommandText"></code></pre></p>
+        <input type="button" value="copy" id="mySQLadminUserCommandCopy">
+
+        <h3>Step 9</h3>
+        <p>Now we can log out of our Server</p>
+        <p><code>exit</code></p>
+        <input type="button" value="copy" id="exitServerCommandCopy">
+
+        <br>
+
+        <h3>You have setup MySQL on your Server!!</h3>
 
     </section>
 

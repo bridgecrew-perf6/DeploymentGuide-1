@@ -18,7 +18,8 @@ const serverCredentialscmdText = document.getElementById('serverCredentialsComma
 const serverCredentialsField = document.getElementById('serverCredentails');
 const serverUserNameField = document.getElementById("serverUserName");
 const serverLogincmdText = document.getElementById("serverLoginCommand");
-const installMySQLcmdText = document.getElementById("installMySQLCommandText");
+const configMySQLcmdText = document.getElementById("configMySQLCommandText");
+const mySQLCreateAdminUsercmdText = document.getElementById('mySQLamdinUserCommandText');
 
 
 
@@ -38,13 +39,15 @@ let serverUserName;
 let serverInitcmd = "cods init springBootServer";
 let serverCredentialscmd = "springBootServer credentials";
 let serverCredentials = "Sudo Password: T2OrIQw3VnyBAgSdh1fr   DB Password:   Q5YnPYv6Xqdsa13D4mpy";
-let credentialsSudoPass;
-let credentialsDbPass;
+let credentialsSudoPass = "";
+let credentialsDbPass = "";
 let serverLoginCommand;
-let mysqlInstallcmd = `sudo -s\nwget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb\ndpkg -i mysql-apt-config_0.8.13-1_all.deb`;
+let mysqlConfigcmd = `sudo -s\nwget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb\ndpkg -i mysql-apt-config_0.8.13-1_all.deb`;
+let mysqlInstallcmd = `apt update && apt install -y mysql-server`;
+const mysqlLogincmd = `mysql -u root`;
+let mysqlCreateAdminUsercmd;
 
-
-installMySQLcmdText.innerHTML = mysqlInstallcmd;
+configMySQLcmdText.innerHTML = mysqlInstallcmd;
 
 function RetreiveCredentials(creds){
     const sudoPassTerm = "Sudo Password:";
@@ -126,7 +129,10 @@ serverNameField.addEventListener('change', () =>{
 })
 
 serverUserNameField.addEventListener('change', () =>{
-    serverUserNameField = serverUserNameField.value;
+    serverUserName = serverUserNameField.value;
+    mysqlCreateAdminUsercmd = `CREATE USER '${serverUserName}'@'localhost' IDENTIFIED BY '${credentialsDbPass}';\nGRANT ALL on *.* TO '${serverUserName}'@'localhost' WITH GRANT OPTION;`;
+    mySQLCreateAdminUsercmdText.innerHTML = mysqlCreateAdminUsercmd
+    clipboard('mySQLadminUserCommandCopy',mysqlCreateAdminUsercmd);
 })
 
 
@@ -134,6 +140,9 @@ serverUserNameField.addEventListener('change', () =>{
 serverCredentialsField.addEventListener('change', () =>{
     serverCredentials = serverCredentialsField.value.trim();
     RetreiveCredentials(serverCredentials);
+    mysqlCreateAdminUsercmd = `CREATE USER '${serverUserName}'@'localhost' IDENTIFIED BY '${credentialsDbPass}';\nGRANT ALL on *.* TO '${serverUserName}'@'localhost' WITH GRANT OPTION;`;
+    mySQLCreateAdminUsercmdText.innerHTML = mysqlCreateAdminUsercmd
+    clipboard('mySQLadminUserCommandCopy',mysqlCreateAdminUsercmd);
 
 })
 
@@ -151,9 +160,11 @@ clipboard('codsFileIntergrityCommandButton',codsFileIntergrityCommand);
 clipboard('zguldeCodsToolButton',zguldeCodsBrewCommand);
 clipboard('serverInitcommandCopy',serverInitcmd);
 clipboard('dropletIpAddressCopy',serverIPAddress);
-clipboard('mySQLinstallationCommand', mysqlInstallcmd);
+clipboard('mySQLconfigCommandCopy',mysqlConfigcmd);
+clipboard('mySQLinstallCommandCopy',mysqlInstallcmd);
+clipboard('mySQLloginCommandCopy',mysqlLogincmd);
 
-
+clipboard('exitServerCommandCopy','exit');
 
 
 
