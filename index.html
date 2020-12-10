@@ -116,6 +116,12 @@
         <h3>Step 14</h3>
         <p>Click Create Droplet Button</p>
 
+        <h3>Step 15</h3>
+        <p>You will be redirected and will see your droplet being created</p>
+        <p>When the loading bar on your droplet is complete you will see the droplet's ip address.</p>
+        <p>Copy the droplet's ip address and paste it in the field below.</p>
+        <input type="text" id="serverIpField" placeholder="333.22.333.22">
+
         <h3>You have Created your Droplet!!</h2>
 
     </section>
@@ -172,15 +178,15 @@
         <h3>Step 2</h3>
         <p>If you do not have intergrations in your application you will need to add the following to your <code>pom.xml</code></p>
         <pre>
-            <code>
-                ... 
-                &#60;properties&#62; 
-                ...
-                 &#60;skipTests&#62;true&#60;/skipTests&#62;
-                ... 
-                &#60;/properties&#62; 
-                ... 
-            </code>
+<code>
+    ...
+    &#60;properties&#62; 
+        ...
+        &#60;skipTests&#62;true&#60;/skipTests&#62;
+        ... 
+    &#60;/properties&#62; 
+    ... 
+</code>
         </pre>
 
         <h3>Step 3</h3>
@@ -228,6 +234,41 @@
         <input type="button" value="copy" id="codsFileIntergrityCommandButton">
         
         <h3>You have succesfully set up your application for deployment!</h3>
+
+    </section>
+
+    <section>
+        <h2>Server Set up</h2>
+        <br>
+
+        <h3>Step 1</h3>
+        <p>We need to install the cods tool</p>
+        <p><code>brew install zgulde/zgulde/cods</code></p>
+        <input type="button" value="copy" id="zguldeCodsToolButton">
+
+        <h3>Step 2</h3>
+        <p>Decide what you would like to name your server</p>
+        <p>Ex: springBootServer</p>
+        <input type="text" id="serverNameField" placeholder="springBootServer">
+
+
+
+        <h3>Step 3</h3>
+        <p>Now we can use the cods tool to make a connection to your server</p>
+        <p><code id="serverInitcommand">cods init springBootServer</code></p>
+
+        <h3>Step 4</h3>
+        <p>You will be prompted for your server's ip address</p>
+
+        <h3>Step 5</h3>
+        <p>When prompted for a username you can just use the default username</p>
+
+        <h3>Step 6</h3>
+        <p>Next it will ask you for an email, this is for recovery purposes.</p>
+
+        <h3>Step 7</h3>
+        <p>The cods tool will now go through the proccess of setting up your server</p>
+        <p>Get some popcorn it could be awhile. . .</p>
 
     </section>
 

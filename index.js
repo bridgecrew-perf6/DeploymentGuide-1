@@ -9,6 +9,10 @@ const findjarfilecmdText = document.getElementById('runJarFileCommand');
 const codsFileCreationcmdText = document.getElementById('codsFileCreationCommand');
 const codsFileText = document.getElementById('codsFileText')
 const codsIntegritycmdText = document.getElementById('codsFileIntergrityCommandText');
+const serverIpField = document.getElementById('serverIpField');
+const serverNameField = document.getElementById('serverNameField');
+const serverInitcommandText = document.getElementById('serverInitcommand');
+
 
 let domain = "something.com";
 const sshkeycmd = "cat ~/.ssh/id_rsa.pub | pbcopy";
@@ -19,6 +23,11 @@ let codsfileConts = `BUILD_COMMAND='./mvnw package'\nJAR_FILE=target/blog-0.0.1-
 let  codsFileCreationcmd = "";
 let jarFileLocation = "";
 const codsFileIntergrityCommand = `source .cods\neval "$BUILD_COMMAND"\n[[ -f $JAR_FILE ]] && echo 'Good to Go!' || echo 'JAR_FILE not found!'`
+const zguldeCodsBrewCommand = "brew install zgulde/zgulde/cods";
+let serverIPAddress = "";
+let serverName = "springBootServer";
+let serverInitcmd = "cods init springBootServer";
+
 
 
 
@@ -43,6 +52,10 @@ DomainSearchButton.addEventListener("click", () =>{
     window.open(url);
 })
 
+serverIpField.addEventListener("change", () =>{
+    serverIPAddress = serverIpField.value;
+})
+
 domainNameField.addEventListener("change", () =>{
     domain = domainNameField.value;
     addnewDomainText.innerHTML = domain;
@@ -65,6 +78,12 @@ findTargetResult.addEventListener('change', () =>{
     clipboard('codsFileCreationCommandText',codsFileCreationcmd);
 })
 
+serverNameField.addEventListener('click', () =>{
+
+})
+
+
+
 codsIntegritycmdText.innerHTML = codsFileIntergrityCommand;
 
 clipboard('nsOneCopy','ns1.digitalocean.com');
@@ -74,6 +93,7 @@ clipboard('copySshCommandButton',sshkeycmd);
 clipboard('copyMavenPackageCommandButton',mavenPackagecmd);
 clipboard('findJarFileButton',findJarFileCmd);
 clipboard('codsFileIntergrityCommandButton',codsFileIntergrityCommand);
+clipboard('zguldeCodsToolButton',zguldeCodsBrewCommand);
 
 
 
