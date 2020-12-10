@@ -256,12 +256,18 @@
         <h3>Step 3</h3>
         <p>Now we can use the cods tool to make a connection to your server</p>
         <p><code id="serverInitcommand">cods init springBootServer</code></p>
+        <input type="button" value="copy" id="serverInitcommandCopy">
+
 
         <h3>Step 4</h3>
         <p>You will be prompted for your server's ip address</p>
+        <p><code id="dropletIpAddress">333.22.333.22</code></p>
+        <input type="button" value="copy" id="dropletIpAddressCopy">
 
         <h3>Step 5</h3>
         <p>When prompted for a username you can just use the default username</p>
+        <p>Enter the username that you have chossen in the field below.</p>
+        <input type="text" id="serverUserName">
 
         <h3>Step 6</h3>
         <p>Next it will ask you for an email, this is for recovery purposes.</p>
@@ -269,6 +275,43 @@
         <h3>Step 7</h3>
         <p>The cods tool will now go through the proccess of setting up your server</p>
         <p>Get some popcorn it could be awhile. . .</p>
+
+        <h3>Step 8</h3>
+        <p>When the cods tool is finished you can put the following in your terminal to what commands are aviable to you.</p>
+        <p><code id="serverRefferenceCommand">springBootServer</code></p>
+        <input type="button" value="copy" id="serverRefferenceCommandButtonCopy">
+
+        <h3>Step 9</h3>
+        <p>Lets run the server credentials command to get our credentials for our server</p>
+        <p><code id="serverCredentialsCommand">springBootServer credentials</code></p>
+        <input type="button" value="copy" id="serverCredentialsCommandButtonCopy">
+
+        <h3>Step 10</h3>
+        <p>Copy and paste your server credentials in the field below</p>
+        <input type="text" id="serverCredentails">
+
+    
+        <h3>Congratulations You have set up your connection to the server</h3>
+        <br>
+    </section>
+
+    <section>
+        <h2>Server-Side MySQL Database Setup</h2>
+        <br>
+
+        <h3>Step 1</h3>
+        <p>First we need to login to our server.</p>
+        <p><code id="serverLoginCommand">springBootServer login</code></p>
+        <input type="button" value="copy" id="serverLoginCommandButtonCopy">
+
+        <h3>Step 2</h3>
+        <p>Lets install MySQL on our Droplet</p>
+        <p><pre><code id="installMySQLCommandText"></code></pre></p>
+        <input type="button" value="copy" id="mySQLinstallationCommand">
+
+        <h4>Step 3</h4>
+        <p>When prompted for </p>
+
 
     </section>
 

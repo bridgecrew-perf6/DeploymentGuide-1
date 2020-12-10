@@ -12,6 +12,14 @@ const codsIntegritycmdText = document.getElementById('codsFileIntergrityCommandT
 const serverIpField = document.getElementById('serverIpField');
 const serverNameField = document.getElementById('serverNameField');
 const serverInitcommandText = document.getElementById('serverInitcommand');
+const dropletIpAddress = document.getElementById('dropletIpAddress');
+const serverRefcmdText = document.getElementById('serverRefferenceCommand');
+const serverCredentialscmdText = document.getElementById('serverCredentialsCommand');
+const serverCredentialsField = document.getElementById('serverCredentails');
+const serverUserNameField = document.getElementById("serverUserName");
+const serverLogincmdText = document.getElementById("serverLoginCommand");
+const installMySQLcmdText = document.getElementById("installMySQLCommandText");
+
 
 
 let domain = "something.com";
@@ -26,10 +34,32 @@ const codsFileIntergrityCommand = `source .cods\neval "$BUILD_COMMAND"\n[[ -f $J
 const zguldeCodsBrewCommand = "brew install zgulde/zgulde/cods";
 let serverIPAddress = "";
 let serverName = "springBootServer";
+let serverUserName;
 let serverInitcmd = "cods init springBootServer";
+let serverCredentialscmd = "springBootServer credentials";
+let serverCredentials = "Sudo Password: T2OrIQw3VnyBAgSdh1fr   DB Password:   Q5YnPYv6Xqdsa13D4mpy";
+let credentialsSudoPass;
+let credentialsDbPass;
+let serverLoginCommand;
+let mysqlInstallcmd = `sudo -s\nwget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb\ndpkg -i mysql-apt-config_0.8.13-1_all.deb`;
 
 
+installMySQLcmdText.innerHTML = mysqlInstallcmd;
 
+function RetreiveCredentials(creds){
+    const sudoPassTerm = "Sudo Password:";
+    const DbPassTerm = "DB Password:";
+
+    let sudoPassIndex = creds.indexOf(sudoPassTerm);
+    let DbPassIndex = creds.indexOf(DbPassTerm);
+
+    let sudoPass = creds.substring(sudoPassIndex,DbPassIndex - 1);
+    credentialsSudoPass = sudoPass.slice(sudoPassTerm.length,sudoPass.length).trim();
+
+    let DbPass = creds.substring(DbPassIndex,creds.length);
+    credentialsDbPass = DbPass.slice(DbPassTerm.length,DbPass.length).trim();
+
+}
 
 
 async function copyTextToClipBoard(textToCopy) {
@@ -54,6 +84,7 @@ DomainSearchButton.addEventListener("click", () =>{
 
 serverIpField.addEventListener("change", () =>{
     serverIPAddress = serverIpField.value;
+    dropletIpAddress.innerHTML = serverIPAddress;
 })
 
 domainNameField.addEventListener("change", () =>{
@@ -78,7 +109,31 @@ findTargetResult.addEventListener('change', () =>{
     clipboard('codsFileCreationCommandText',codsFileCreationcmd);
 })
 
-serverNameField.addEventListener('click', () =>{
+serverNameField.addEventListener('change', () =>{
+    serverName = serverNameField.value.trim();
+    serverInitcmd = `cods init ${serverName}`;
+    serverInitcommandText.innerHTML = serverInitcmd;
+    serverRefcmdText.innerHTML = serverName;
+    serverCredentialscmd = `${serverName} credentials`;
+    serverCredentialscmdText.innerHTML = serverCredentialscmd;
+    serverLoginCommand = `${serverName} login`;
+    serverLogincmdText.value = serverLoginCommand;
+    clipboard('serverRefferenceCommandButtonCopy',serverName);
+    clipboard('serverCredentialsCommandButtonCopy',serverCredentialscmd);
+    clipboard('serverLoginCommandButtonCopy',serverLoginCommand);
+
+
+})
+
+serverUserNameField.addEventListener('change', () =>{
+    serverUserNameField = serverUserNameField.value;
+})
+
+
+
+serverCredentialsField.addEventListener('change', () =>{
+    serverCredentials = serverCredentialsField.value.trim();
+    RetreiveCredentials(serverCredentials);
 
 })
 
@@ -94,6 +149,11 @@ clipboard('copyMavenPackageCommandButton',mavenPackagecmd);
 clipboard('findJarFileButton',findJarFileCmd);
 clipboard('codsFileIntergrityCommandButton',codsFileIntergrityCommand);
 clipboard('zguldeCodsToolButton',zguldeCodsBrewCommand);
+clipboard('serverInitcommandCopy',serverInitcmd);
+clipboard('dropletIpAddressCopy',serverIPAddress);
+clipboard('mySQLinstallationCommand', mysqlInstallcmd);
+
+
 
 
 
