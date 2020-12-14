@@ -1,0 +1,19 @@
+code {
+    color: rgb(214, 83, 83);
+    margin: 0 0 10px;
+}
+
+pre {
+    margin: 0 0 10px;
+}
+
+.codeSpace{
+    background-color: rgb(236, 236, 236);
+    padding: 10px;
+    border: solid 1px  rgb(190, 190, 190);
+    border-radius: 5px;
+}
+
+.noMargin{
+    margin: 0;
+}

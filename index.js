@@ -204,6 +204,8 @@ serverNameField.addEventListener('change', () => {
     propertiesUploadCommandText.innerHTML = serverUploadcmd;
     clipboard('propertiesUploadCommandCopy', serverUploadcmd);
     fileUploadEditseq();
+    clipboard('serverInitcommandCopy', serverInitcmd);
+
 
 })
 
@@ -268,9 +270,6 @@ clipboard('mySQLloginCommandCopy', mysqlLogincmd);
 
 clipboard('exitServerCommandCopy', 'exit');
 clipboard('pushProductionCommandCopy',"git push production master");
-
-
-
 
 
 

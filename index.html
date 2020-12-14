@@ -7,6 +7,7 @@
     <title>Lets Deploy!</title>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href='./index.css'>
 </head>
 
 <body class="container">
@@ -47,18 +48,21 @@
         <p>Select the ADD NAMESERVER button</p>
 
         <p>enter the following text in the fields </p>
-        <label class="font-monospace" for="ns1Field">1st field</label> <code id="ns1Field">ns1.digitalocean.com</code>
-        <input type="button" value="copy" id="nsOneCopy">
+        <div class="codeSpace">
+            <code id="ns1Field">ns1.digitalocean.com</code>
+            <input type="button" value="copy" id="nsOneCopy">
+        </div>
         <br>
 
-        <label class="font-monospace" for="ns2Field">2nd field</label> <code id="ns2Field">ns2.digitalocean.com</code>
-        <input type="button" value="copy" id="nsTwoCopy">
-
+        <div class="codeSpace">
+            <code id="ns2Field">ns2.digitalocean.com</code>
+            <input type="button" value="copy" id="nsTwoCopy">
+        </div>
         <br>
-
-        <label class="font-monospace" for="ns3Field">3rd field</label> <code id="ns3Field">ns3.digitalocean.com</code>
-        <input type="button" value="copy" id="nsThreeCopy">
-
+        <div class="codeSpace">
+            <code id="ns3Field">ns3.digitalocean.com</code>
+            <input type="button" value="copy" id="nsThreeCopy">
+        </div>
         <h3>Step 4</h3>
         <p>Confirm changes by clicking green checkmark</p>
 
@@ -98,8 +102,10 @@
 
         <h3>Step 8</h3>
         <p>put the following commnad in your terminal. This will copy your SSH key to your ClipBoard.</p>
-        <p><code>cat ~/.ssh/id_rsa.pub | pbcopy</code></p>
-        <input type="button" value="copy" id="copySshCommandButton">
+        <div class="codeSpace">
+            <code>cat ~/.ssh/id_rsa.pub | pbcopy</code>
+            <input type="button" value="copy" id="copySshCommandButton">
+        </div>
 
         <h3>Step 9</h3>
         <p>Paste into the SHH Key content field</p>
@@ -145,8 +151,10 @@
 
         <h3>Step 2</h3>
         <p>Next you need to add your domian to field under Add a domain.</p>
-        <p><code id="AddNewDomainText">something.com</code></p>
-        <input type="button" value="copy" id="AddNewDomainCopyButton">
+        <div class="codeSpace">
+            <code id="AddNewDomainText">something.com</code>
+            <input type="button" value="copy" id="AddNewDomainCopyButton">
+        </div>
 
         <h3>Step 3</h3>
         <p>Enter @ into the hostname field.</p>
@@ -183,9 +191,11 @@
 
         <h3>Step 2</h3>
         <p>If you do not have intergrations in your application you will need to add the following to your
-            <code>pom.xml</code></p>
-        <pre>
-<code>
+            <code>pom.xml</code>
+        </p>
+        <div class="codeSpace">
+            <pre class="noMargin">
+<code class="noMargin">
     ...
     &#60;properties&#62; 
         ...
@@ -195,12 +205,14 @@
     ... 
 </code>
         </pre>
+        </div>
 
         <h3>Step 3</h3>
         <p>Open a new terminal in your intellij project and run the following command</p>
-        <p><code>./mvnw package</code></p>
-        <input type="button" value="copy" id="copyMavenPackageCommandButton">
-
+        <div class="codeSpace">
+            <code>./mvnw package</code>
+            <input type="button" value="copy" id="copyMavenPackageCommandButton">
+        </div>
 
         <h3>Step 4</h3>
         <p>If your application packaged succesfully you can move to the next step</p>
@@ -209,8 +221,10 @@
         <h3>Step 5</h3>
         <p>Next we need to find the location of your output jar file</p>
         <p>You can do so by running the following command in your project's terminal</p>
-        <p><code>find target -name \*.jar</code></p>
-        <input type="button" value="copy" id="findJarFileButton">
+        <div class="codeSpace">
+            <code>find target -name \*.jar</code>
+            <input type="button" value="copy" id="findJarFileButton">
+        </div>
 
         <h3>Step 6</h3>
         <p>Next Paste the result of the command in the field below.</p>
@@ -219,8 +233,10 @@
         <h3>Step 7</h3>
         <p>Now lets run our application from the command line.</p>
         <p>Run the following command in your project's terminal</p>
-        <p><code id="runJarFileCommand">java -jar YOUR_JAR_FILE</code></p>
-        <input type="button" value="copy" id="runJarFileCommandCopy">
+        <div class="codeSpace">
+            <code id="runJarFileCommand">java -jar YOUR_JAR_FILE</code>
+            <input type="button" value="copy" id="runJarFileCommandCopy">
+        </div>
 
         <h3>Step 8</h3>
         <p>Once your application has succesfully started up, you can use press Ctrl-C.</p>
@@ -228,24 +244,26 @@
 
         <h3>Step 9</h3>
         <p>The Following command will create a <code>cods.</code> file in the root of your project.</p>
-        <p>
-        <pre><code id="codsFileCreationCommand"></code></pre>
-        </p>
-        <input type="button" value="copy" id="codsFileCreationCommandText">
+        <div class="codeSpace">
+
+            <pre><code id="codsFileCreationCommand"></code></pre>
+            <input type="button" value="copy" id="codsFileCreationCommandText">
+        </div>
 
         <h3>Step 10</h3>
         <p>Make sure the following code is in the <code>cods.</code> file.</p>
-        <p>
-        <pre><code id="codsFileText"></code></pre>
-        </p>
+        <div class="codeSpace">
+            <p>
+            <pre><code id="codsFileText"></code></pre>
+            </p>
+        </div>
 
         <h3>Step 11</h3>
         <p>Next is to make sure that the <code>cods.</code> file is all set up and good to go.</p>
-        <p>
-        <pre><code id="codsFileIntergrityCommandText"></code></pre>
-        </p>
-        <input type="button" value="copy" id="codsFileIntergrityCommandButton">
-
+        <div class="codeSpace">
+            <pre><code id="codsFileIntergrityCommandText"></code></pre>
+            <input type="button" value="copy" id="codsFileIntergrityCommandButton">
+        </div>
         <h3>You have succesfully set up your application for deployment!</h3>
 
     </section>
@@ -256,8 +274,10 @@
 
         <h3>Step 1</h3>
         <p>We need to install the cods tool</p>
-        <p><code>brew install zgulde/zgulde/cods</code></p>
+        <div class="codeSpace">
+        <code>brew install zgulde/zgulde/cods</code>
         <input type="button" value="copy" id="zguldeCodsToolButton">
+        </div>
 
         <h3>Step 2</h3>
         <p>Decide what you would like to name your server</p>
@@ -268,14 +288,18 @@
 
         <h3>Step 3</h3>
         <p>Now we can use the cods tool to make a connection to your server</p>
-        <p><code id="serverInitcommand">cods init springBootServer</code></p>
+        <div class="codeSpace">
+        <code id="serverInitcommand">cods init springBootServer</code>
         <input type="button" value="copy" id="serverInitcommandCopy">
+        </div>
 
 
         <h3>Step 4</h3>
         <p>You will be prompted for your server's ip address</p>
-        <p><code id="dropletIpAddress">333.22.333.22</code></p>
+        <div class="codeSpace">
+        <code id="dropletIpAddress">333.22.333.22</code>
         <input type="button" value="copy" id="dropletIpAddressCopy">
+        </div>
 
         <h3>Step 5</h3>
         <p>When prompted for a username you can just use the default username</p>
@@ -290,18 +314,22 @@
         <p>Get some popcorn it could be awhile. . .</p>
 
         <h3>Step 8</h3>
-        <p>When the cods tool is finished you can put the following in your terminal to what commands are aviable to
-            you.</p>
-        <p><code id="serverRefferenceCommand">springBootServer</code></p>
+        <p>When the cods tool is finished you can put the following in your terminal to what commands are aviable to you.</p>
+        <div class="codeSpace">
+        <code id="serverRefferenceCommand">springBootServer</code>
         <input type="button" value="copy" id="serverRefferenceCommandButtonCopy">
+        </div>
 
         <h3>Step 9</h3>
         <p>Lets run the server credentials command to get our credentials for our server</p>
-        <p><code id="serverCredentialsCommand">springBootServer credentials | pbcopy</code></p>
+        <div class="codeSpace">
+        <code id="serverCredentialsCommand">springBootServer credentials | pbcopy</code>
         <input type="button" value="copy" id="serverCredentialsCommandButtonCopy">
+        </div>
 
         <h3>Step 10</h3>
-        <p>When you run the command above, it will automatically copy the servers credentials to your clipboard, paste them in the field below.</p>
+        <p>When you run the command above, it will automatically copy the servers credentials to your clipboard, paste
+            them in the field below.</p>
         <input type="text" id="serverCredentails">
 
 
@@ -315,15 +343,17 @@
 
         <h3>Step 1</h3>
         <p>First we need to login to our server.</p>
-        <p><code id="serverLoginCommand">springBootServer login</code></p>
+        <div class="codeSpace">
+        <code id="serverLoginCommand">springBootServer login</code>
         <input type="button" value="copy" id="serverLoginCommandButtonCopy">
+        </div>
 
         <h3>Step 2</h3>
         <p>Lets configure our MySQL install on our Droplet</p>
-        <p>
+        <div class="codeSpace">
         <pre><code id="configMySQLCommandText"></code></pre>
-        </p>
         <input type="button" value="copy" id="mySQLconfigCommandCopy">
+        </div>
 
         <h3>Step 3</h3>
         <p>When prompted Select "MySQL Server & Cluster".</p>
@@ -333,28 +363,35 @@
 
         <h3>Step 5</h3>
         <p>Next install mySQL on the droplet</p>
-        <p><code id="installMySQLCommandText">apt update && apt install -y mysql-server</code></p>
+        <div class="codeSpace">
+        <code id="installMySQLCommandText">apt update && apt install -y mysql-server</code>
         <input type="button" value="copy" id="mySQLinstallCommandCopy">
+        </div>
 
         <h3>Step 6</h3>
         <p>You will be prompted for a password, leave this blank and proceed.</p>
 
         <h3>Step 7</h3>
         <p>When the installation is complete we need to log into MySQL on our droplet.</p>
-        <p><code>mysql -u root</code></p>
+        <div class="codeSpace">
+        <code>mysql -u root</code>
         <input type="button" value="copy" id="mySQLloginCommandCopy">
+        </div>
 
         <h3>Step 8</h3>
         <p>Next lets create our admin user for MySQL</p>
-        <p>
+        <div class="codeSpace">
         <pre><code id="mySQLamdinUserCommandText"></code></pre>
-        </p>
         <input type="button" value="copy" id="mySQLadminUserCommandCopy">
+        </div>
+
 
         <h3>Step 9</h3>
         <p>Now we can log out of our Server</p>
-        <p><code>exit</code></p>
+        <div class="codeSpace">
+        <code>exit</code>
         <input type="button" value="copy" id="exitServerCommandCopy">
+        </div>
 
         <br>
 
@@ -369,54 +406,70 @@
         <h3>Step 1</h3>
         <p>In the field below put what you would like your Application Database to be named.</p>
         <input type="text" id="appDbName" placeholder="blog_db">
-        
+
         <h3>Step 2</h3>
         <p>In the field below put what you would like your Application Database's user to be named.</p>
         <input type="text" id="appDbUser" placeholder="blog_user">
 
         <h3>Step 3</h3>
         <p>The following command will create both a database and user for your application.</p>
-        <p><code id="serverCreateDbandUserCommandText">myserver db create --name blog_db --user blog_user</code></p>
+        <div class="codeSpace">
+        <code id="serverCreateDbandUserCommandText">myserver db create --name blog_db --user blog_user</code>
         <input type="button" value="copy" id="serverCreateDbandUserCommandCopy">
+        </div>
 
         <h3>Step 4</h3>
         <p>You will be promted for your DB's admin password</p>
         <p>Paste the password from below into the terminal to procceed.</p>
-        <p><code id="ServerCreateDbPassText"></code></p>
+        <div class="codeSpace">
+        <code id="ServerCreateDbPassText"></code>
         <input type="button" value="copy" id="ServerCreateDbSudoPassCopy">
+        </div>
 
 
         <h3>Step 5</h3>
         <p>The next command will prepair your server for your site.</p>
-        <p><code id="createSiteCommandText">springBootServer site create --domain something.com --java --spring-boot --port 8080</code></p>
+        <div class="codeSpace">
+        <code id="createSiteCommandText">springBootServer site create --domain something.com --java --spring-boot --port 8080</code>
         <input type="button" value="copy" id="createSiteCommandCopy">
+        </div>
 
         <h3>Step 6</h3>
-        <p>Our credentials have been updated</p><p> run the server credentials command to get our credentials for our server</p>
-        <p><code id="serverCredentialsCommandTextTwo">springBootServer credentials</code></p>
+        <p>Our credentials have been updated</p>
+        <p> run the server credentials command to get our credentials for our server</p>
+        <div class="codeSpace">
+        <code id="serverCredentialsCommandTextTwo">springBootServer credentials</code>
         <input type="button" value="copy" id="serverCredentialsCommandButtonCopyTwo">
+        </div>
 
         <h3>Step 7</h3>
-        <p>When you run the command in the terinal it will copy the results to your clipboard, paste in the field below.</p>
+        <p>When you run the command in the terinal it will copy the results to your clipboard, paste in the field below.
+        </p>
         <input type="text" id="secondServerCredentails">
 
         <h3>Step 8</h3>
         <p>Open a new terminal in the root of your project if one is not open already</p>
         <p>Run the command below into project terminal.</p>
-        <p><code id="propertiesUploadCommandText">myserver upload --file src/main/resources/application.properties --destination /srv/example.com/application.properties</code></p>
+        <div class="codeSpace">
+        <code id="propertiesUploadCommandText">myserver upload --file src/main/resources/application.properties --destination /srv/example.com/application.properties</code>
         <input type="button" value="copy" id="propertiesUploadCommandCopy">
+    </div>
 
         <h3>Step 9</h3>
         <p>Now we need to edit the file we just uploaded to work with our MySQL on the server.</p>
-        <p><code id="fileEditCommandText">myserver run nano /srv/example.com/application.properties</code></p>
+        <div class="codeSpace">
+        <code id="fileEditCommandText">myserver run nano /srv/example.com/application.properties</code>
         <input type="button" value="copy" id="fileEditCommandCopy">
+        </div>
 
         <h3>Step 10</h3>
         <p>This will open the Nano text editor so we can make required changes.</p>
         <p>Make sure the following feilds look as such.</p>
-        <p><code id="dataSourceURLText"></code></p>
-        <p><code id="dataSourceUSERNAMEText"></code></p>
-        <p><code id="dataSourcePASSText"></code></p>
+        <div class="codeSpace">
+        <code id="dataSourceURLText"></code>
+        <code id="dataSourceUSERNAMEText"></code>
+        <code id="dataSourcePASSText"></code>
+        </div>
 
         <h3>Step 11</h3>
         <p>Once we have edited the properties file server side we need to save the changes.</p>
@@ -429,13 +482,17 @@
 
         <h3>Step 12</h3>
         <p>Now lets add our remote</p>
-        <p><code id="addRemoteCommandText">git remote add production username@333.22.333.22:/srv/something.com/repo.git</code></p>
+        <div class="codeSpace">
+        <code id="addRemoteCommandText">git remote add production username@333.22.333.22:/srv/something.com/repo.git</code>
         <input type="button" value="copy" id="addRemoteCommandCopy">
+        </div>
 
         <h3>Step 13</h3>
         <p>now that we have added our remote lets push our project to the server</p>
-        <p><code>git push production master</code></p>
+        <div class="codeSpace">
+        <code>git push production master</code>
         <input type="button" value="copy" id="pushProductionCommandCopy">
+        </div>
 
         <br>
         <h3>Congratulations you're done!</h3>
@@ -445,7 +502,8 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="./index.js"></script>
 
 </body>
