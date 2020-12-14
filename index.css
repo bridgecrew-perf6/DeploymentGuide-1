@@ -17,3 +17,20 @@ pre {
 .noMargin{
     margin: 0;
 }
+
+p {
+    font-family: sans-serif;
+}
+
+h3 {
+    font-family: sans-serif;
+}
+
+h2 {
+    font-family: sans-serif;
+    color: rgb(90, 90, 90);
+}
+
+h1 {
+    font-family: sans-serif;
+}
