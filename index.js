@@ -267,7 +267,7 @@ clipboard('mySQLinstallCommandCopy', mysqlInstallcmd);
 clipboard('mySQLloginCommandCopy', mysqlLogincmd);
 
 clipboard('exitServerCommandCopy', 'exit');
-
+clipboard('pushProductionCommandCopy',"git push production master");
 
 
 

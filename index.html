@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lets Deploy!</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
 </head>
 
 <body class="container">
@@ -14,6 +14,7 @@
     <p>
         The purpose of this site is to make deploying your capstones as easy as possible.
     </p>
+    <p>To make this guide work fill in all fields Otherwise required data might be missing when generating commands.</p>
     <section id="domainSetup">
 
         <h2>Domain Setup</h2>
@@ -430,6 +431,15 @@
         <p>Now lets add our remote</p>
         <p><code id="addRemoteCommandText">git remote add production username@333.22.333.22:/srv/something.com/repo.git</code></p>
         <input type="button" value="copy" id="addRemoteCommandCopy">
+
+        <h3>Step 13</h3>
+        <p>now that we have added our remote lets push our project to the server</p>
+        <p><code>git push production master</code></p>
+        <input type="button" value="copy" id="pushProductionCommandCopy">
+
+        <br>
+        <h3>Congratulations you're done!</h3>
+
 
     </section>
 
