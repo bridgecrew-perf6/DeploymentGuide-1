@@ -36,7 +36,7 @@ const addRemoteCommandText = document.getElementById('addRemoteCommandText');
 let domain = "something.com";
 const sshkeycmd = "cat ~/.ssh/id_rsa.pub | pbcopy";
 const mavenPackagecmd = "./mvnw package";
-const findJarFileCmd = String.raw`find target -name \*.jar`
+const findJarFileCmd = String.raw`find target -name \*.jar | pbcopy`
 let runJarFilecmd = "YOUR_JAR_FILE";
 let codsfileConts = `BUILD_COMMAND='./mvnw package'\nJAR_FILE=target/blog-0.0.1-SNAPSHOT.jar`
 let codsFileCreationcmd = "";
